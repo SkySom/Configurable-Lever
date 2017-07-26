@@ -1,0 +1,18 @@
+[
+  {
+    "modid": "configurablelever",
+    "name": "Configurable Lever",
+    "description": "Mod which adds Configurable Lever",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "http://minecraft.curseforge.com/projects/configuable-lever",
+    "updateUrl": "http://minecraft.curseforge.com/projects/configurable-lever/files",
+    "authorList": [
+      "SkySom"
+    ],
+    "credits": "Placeholder Credits",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": ["base"]
+  }
+]
