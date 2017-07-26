@@ -15,7 +15,7 @@ public class ConfigurableLever extends BaseModFoundation<ConfigurableLever> {
     public final static String MODID = "configurablelever";
     public final static String MOD_NAME = "Configurable Lever";
     public final static String VERSION = "##VERSION##";
-    public final static String DEPENDS = "after:base[0.0.0,]";
+    public final static String DEPENDS = "after:base[0.0.0,)";
 
     public ConfigurableLever() {
         super(MODID, MOD_NAME, VERSION, CreativeTabs.MISC);
