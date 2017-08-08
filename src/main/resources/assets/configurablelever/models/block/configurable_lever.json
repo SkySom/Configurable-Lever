@@ -1,7 +1,7 @@
 {
   "textures": {
-    "outer": "configurablelever:machine_outer",
-    "inner": "configurablelever:machine_inner"
+    "outer": "configurablelever:blocks/machine_outer",
+    "inner": "configurablelever:blocks/machine_inner"
   },
   "elements": [
     {

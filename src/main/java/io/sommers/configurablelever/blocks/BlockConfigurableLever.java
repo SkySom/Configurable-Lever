@@ -2,11 +2,13 @@ package io.sommers.configurablelever.blocks;
 
 import com.teamacronymcoders.base.blocks.BlockBase;
 import com.teamacronymcoders.base.blocks.IHasBlockColor;
+import com.teamacronymcoders.base.blocks.IHasBlockStateMapper;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
@@ -18,7 +20,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-public class BlockConfigurableLever extends BlockBase implements IHasBlockColor {
+public class BlockConfigurableLever extends BlockBase implements IHasBlockColor, IHasBlockStateMapper {
     public static final PropertyInteger POWER = PropertyInteger.create("power", 0, 15);
 
     public BlockConfigurableLever() {
@@ -32,7 +34,7 @@ public class BlockConfigurableLever extends BlockBase implements IHasBlockColor 
 
             if (facing == EnumFacing.DOWN) {
                 increase = false;
-            } else if (facing.getAxis() == EnumFacing.Axis.Y) {
+            } else if (facing.getAxis() != EnumFacing.Axis.Y) {
                 increase = hitY > 0.5;
             }
 
@@ -88,6 +90,12 @@ public class BlockConfigurableLever extends BlockBase implements IHasBlockColor 
     @SuppressWarnings("deprecation")
     public int getStrongPower(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
         return blockState.getValue(POWER);
+    }
+
+    @Override
+    @Nonnull
+    public BlockRenderLayer getBlockLayer() {
+        return BlockRenderLayer.CUTOUT;
     }
 
     @Override

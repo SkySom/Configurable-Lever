@@ -1,6 +1,8 @@
 package io.sommers.configurablelever;
 
 import com.teamacronymcoders.base.BaseModFoundation;
+import com.teamacronymcoders.base.registrysystem.BlockRegistry;
+import io.sommers.configurablelever.blocks.BlockConfigurableLever;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -28,6 +30,11 @@ public class ConfigurableLever extends BaseModFoundation<ConfigurableLever> {
     }
 
     @Override
+    public void afterModuleHandlerInit(FMLPreInitializationEvent event) {
+        this.getRegistry(BlockRegistry.class, "BLOCK").register(new BlockConfigurableLever());
+    }
+
+    @Override
     @EventHandler
     public void init(FMLInitializationEvent event) {
         super.init(event);
@@ -40,7 +47,7 @@ public class ConfigurableLever extends BaseModFoundation<ConfigurableLever> {
     }
 
     @Override
-    public boolean useModAsConfigFolder() {
+    public boolean hasConfig() {
         return false;
     }
 
